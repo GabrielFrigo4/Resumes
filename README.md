@@ -1,2 +1,2 @@
-# Curr-culos
+# Currículos
 Currículos do Gabriel Frigo
