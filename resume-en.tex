@@ -1,0 +1,176 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\usepackage[sfdefault]{roboto}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{5pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{\Large\bfseries\scshape\raggedright}{}{0em}{}[\titlerule]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{\item\small{#1}}
+\newcommand{\resumeSubheading}[4]{
+\vspace{-1pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{#3} & \textit{#4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingList}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\Huge Gabriel Frigo} \\
+  \small +55 11 95570-2000 $|$ \href{mailto:gabriel.frigo4@gmail.com}{gabriel.frigo4@gmail.com} $|$ 
+  \href{https://www.linkedin.com/in/gabriel-frigo-b6727b275/}{linkedin.com/in/gabriel-frigo} $|$
+  \href{https://github.com/GabrielFrigo4}{github.com/GabrielFrigo4}
+\end{center}
+
+\section*{Summary}
+Versatile software engineer with solid experience in low-level and high-performance systems programming. Proficient in C, C++, Rust, and Python, with expertise in developing graphics applications (OpenGL, Vulkan, DirectX) and parallel computing (CUDA, OpenCL). Additional skills include developing ML/AI solutions and linear optimization. Seeking a challenging position to architect and implement robust and efficient software solutions.
+
+\section{Technical Skills}
+\resumeSubHeadingList
+  \resumeItem{\textbf{Languages}: C, C++, Rust, C\#, Java, Python, Lua, SQL}
+  \resumeItem{\textbf{Libraries \& Frameworks}: CUDA, OpenGL, Vulkan, OpenCV, Pandas, NumPy}
+  \resumeItem{\textbf{Tools}: Git, GitHub, Linux, Docker, PostgreSQL, DBeaver, Postman}
+  \resumeItem{\textbf{Concepts}: OOP, Data Structures, Algorithms, Linear Optimization, GPGPU}
+\resumeSubHeadingListEnd
+
+\section{Experience}
+\resumeSubHeadingList
+
+  \resumeSubheading
+    {QI Tech: BaaS Technology}{Jan 2026 -- Mar 2026}
+    {Software Engineering Intern}{QI Tech, SP}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Developed and maintained RESTful APIs using Python 3 for financial services.}
+      \resumeItem{\textbullet\ Designed and structured databases to ensure data integrity and application performance.}
+      \resumeItem{\textbullet\ Containerized applications and development environments using Docker.}
+    \resumeSubHeadingListEnd
+
+  \resumeSubheading
+    {Network Flow Problems: Theory, Algorithms and Implementations}{Oct 2025 -- Sep 2026}
+    {Network Flow Research}{UFABC, SP}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Combinatorial Optimization}
+      \resumeItem{\textbullet\ Graph Theory}
+      \resumeItem{\textbullet\ Flow Problem}
+    \resumeSubHeadingListEnd
+
+  \resumeSubheading
+    {GRUB Competitive Programming}{Jan 2024 -- Present}
+    {Team Member}{UFABC, SP}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Competed in the Maratona Paulista de Programação (MPP) and the International Collegiate Programming Contest (ICPC).}
+      \resumeItem{\textbullet\ Solved complex algorithmic problems using advanced data structures and C/C++.}
+    \resumeSubHeadingListEnd
+
+  \resumeSubheading
+    {Competitive Robotics Tamandutech}{Jun 2023 -- Present}
+    {Software Developer}{UFABC, SP}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Developed software and control systems for competitive "mini sumo" robots.}
+      \resumeItem{\textbullet\ Applied low-level programming concepts to interface with robotics hardware.}
+    \resumeSubHeadingListEnd
+
+\resumeSubHeadingListEnd
+
+\section{Projects}
+\resumeSubHeadingList
+
+  \resumeSubheading
+    {BioBlocks Extension Project}{Mar 2026 -- Present}
+    {Interactive Biochemistry Quiz Game}{Firebase, C\#, Unity}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Developing an educational quiz game aimed at helping undergraduate and master's students solidify their foundational knowledge in biochemistry.}
+      \resumeItem{\textbullet\ Designed to serve both UFABC students and the external community, with full release scheduled for December 2026.}
+    \resumeSubHeadingListEnd
+
+  \resumeSubheading
+    {OBI Extension Project}{Jan 2026 -- Present}
+    {Mentor and Co-creator}{UFABC, SP}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Co-created the initiative in partnership with the coordinating professor to increase the representation and medal count of the Greater ABC region in the Brazilian Informatics Olympiad (OBI).}
+      \resumeItem{\textbullet\ Mentored students ranging from 9th grade to university freshmen across multiple difficulty levels (Junior, 1, 2, and Senior) in programming and algorithms.}
+    \resumeSubHeadingListEnd
+
+  \resumeSubheading
+    {SpaceInvaders Game}{Sep 2025 -- Present} 
+    {Graphics and GPGPU Project}{C/C++, SDL3, OpenGL, OpenCL, OpenAL}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Built an optimized 2D game using Hardware Acceleration.}
+      \resumeItem{\textbullet\ Implemented a GPGPU program to calculate physics.}
+      \resumeItem{\textbullet\ Built an extensive and maintainable object architecture.}
+    \resumeSubHeadingListEnd
+
+  \resumeSubheading
+    {BioDefense Project}{Sep 2021 -- Dec 2021}
+    {Educational Tower Defense Game}{C\#, Unity}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Developed a Tower Defense game designed to educate children and students about the human immune system and disease prevention.}
+      \resumeItem{\textbullet\ Implemented gameplay mechanics where players deploy lymphatic system cells to defend against pathogens, utilizing strategic power-ups like antibiotics.}
+    \resumeSubHeadingListEnd
+
+  \resumeSubheading
+    {Point of Sale and Management System}{Jun 2021 -- Jan 2025}
+    {Desktop Applications}{Jardim Maquinas, SP}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Developed desktop applications including an RTF to PDF converter and webcam image registration.}
+      \resumeItem{\textbullet\ Built an NFe (Electronic Invoicing) manager and signer to streamline sales operations.}
+    \resumeSubHeadingListEnd
+
+\resumeSubHeadingListEnd
+
+\section{Honors \& Awards}
+\resumeSubHeadingList
+  \resumeItem{\textbf{Honorable Mention} -- Brazilian Informatics Olympiad (OBI) \hfill \textit{2024}}
+  \resumeItem{\textbf{Gold (2022 - 13th National Position), Silver (2018, 2019) and Bronze (2017, 2021) Medals} -- Brazilian Public Schools Math Olympiad (OBMEP)}
+  \resumeItem{\textbf{Bronze Medal} -- Paulista Mathematics Olympiad (OPM) \hfill \textit{2021}}
+\resumeSubHeadingListEnd
+
+\section{Education}
+\resumeSubHeadingList
+  \resumeSubheading
+    {Federal University of ABC, UFABC}{UFABC, SP}
+    {B.S. in Science and Technology and Computer Science}{Jun 2023 -- Dec 2027}
+\resumeSubHeadingListEnd
+
+\section{Certifications}
+\resumeSubHeadingList
+  \resumeItem{\textbullet\ \href{https://efset.org/cert/9uJjv8}{EFSET English Certificate 60/100 (B2 Intermediate)}}
+\resumeSubHeadingListEnd
+
+\end{document}
