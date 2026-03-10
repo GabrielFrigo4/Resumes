@@ -15,15 +15,15 @@
  Sempre que uma alteração é submetida na branch principal:
  1. Um *runner* do GitHub inicializa um ambiente com uma distribuição TeX.
  2. Os arquivos `.tex` são compilados nativamente.
- 3. Os PDFs gerados (`resume-pt.pdf` e `resume-en.pdf`) são automaticamente atualizados e disponibilizados para download na aba de *Releases*.
+ 3. Os PDFs gerados ([`resume-pt.pdf`][download_pt] e [`resume-en.pdf`][download_en]) são automaticamente atualizados e disponibilizados para download na aba de *Releases*.
 
 ---
 
 ## 📖 Estrutura dos Arquivos
  Os currículos estão divididos em dois idiomas principais, mantendo a mesma base de layout e informações adaptadas para seus respectivos mercados:
 
- * 🇧🇷 **`resume-pt.tex`:** Versão em Português (PT-BR), ideal para vagas no Brasil, com foco no ecossistema de tecnologia e mercado nacional.
- * 🇺🇸 **`resume-en.tex`:** Versão em Inglês (EN-US), direcionada para oportunidades internacionais e empresas que adotam o inglês como idioma primário.
+ * 🇧🇷 **[`resume-pt.tex`](./resume-pt.tex):** Versão em Português (PT-BR), ideal para vagas no Brasil, com foco no ecossistema de tecnologia e mercado nacional.
+ * 🇺🇸 **[`resume-en.tex`](./resume-en.tex):** Versão em Inglês (EN-US), direcionada para oportunidades internacionais e empresas que adotam o inglês como idioma primário.
 
 ---
 
@@ -33,7 +33,7 @@
  1. Certifique-se de ter uma distribuição LaTeX instalada em seu sistema (como TeX Live no Linux/FreeBSD, ou MiKTeX/TeX Live no Windows via MSYS2).
  2. Clone este repositório em sua máquina:
  ```bash
- git clone [https://github.com/GabrielFrigo4/Resumes.git](https://github.com/GabrielFrigo4/Resumes.git)
+ git clone "https://github.com/GabrielFrigo4/Resumes.git"
  ```
 
  3. Compile o arquivo `.tex` desejado utilizando o compilador `pdflatex`:
