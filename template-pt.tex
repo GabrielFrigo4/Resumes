@@ -1,5 +1,6 @@
 \documentclass[letterpaper,10pt]{article}
 
+% === PACOTES E CONFIGURAÇÕES ===
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
@@ -13,6 +14,7 @@
 \usepackage{tabularx}
 \input{glyphtounicode}
 
+% Fonte Sans-Serif Limpa (Roboto)
 \usepackage[sfdefault]{roboto}
 
 \pagestyle{fancy}
@@ -22,10 +24,11 @@
 \renewcommand{\footrulewidth}{0pt}
 \setlength{\footskip}{5pt}
 
+% Ajuste de Margens
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
+\addtolength{\topmargin}{-0.5in}
 \addtolength{\textheight}{1.0in}
 
 \urlstyle{same}
@@ -33,13 +36,16 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
+% Formatação de Seções (Esconde números automaticamente)
 \titleformat{\section}{\Large\bfseries\scshape\raggedright}{}{0em}{}[\titlerule]
 
+% Otimização para leitura por ATS (Applicant Tracking Systems)
 \pdfgentounicode=1
 
+% === COMANDOS CUSTOMIZADOS ===
 \newcommand{\resumeItem}[1]{\item\small{#1}}
 \newcommand{\resumeSubheading}[4]{
-\vspace{-1pt}\item
+  \vspace{-1pt}\item
   \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
     \textbf{#1} & #2 \\
     \textit{#3} & \textit{#4} \\
@@ -49,18 +55,25 @@
 \newcommand{\resumeSubHeadingList}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 
+% ==============================================
+%               INÍCIO DO DOCUMENTO
+% ==============================================
 \begin{document}
 
+% === CABEÇALHO ===
 \begin{center}
   \textbf{\Huge Gabriel Frigo} \\
+  \vspace{2pt}
   \small +55 11 95570-2000 $|$ \href{mailto:gabriel.frigo4@gmail.com}{gabriel.frigo4@gmail.com} $|$
   \href{https://www.linkedin.com/in/gabriel-frigo-b6727b275/}{linkedin.com/in/gabriel-frigo} $|$
   \href{https://github.com/GabrielFrigo4}{github.com/GabrielFrigo4}
 \end{center}
 
+% === RESUMO ===
 \section{Resumo}
 Engenheiro de software versátil com sólida experiência em programação de sistemas de baixo nível e de alta performance. Proficiente em C, C++, Rust e Python, com expertise no desenvolvimento de aplicações gráficas (OpenGL, Vulkan, DirectX) e computação paralela (CUDA, OpenCL). Habilidades adicionais incluem o desenvolvimento de soluções de ML/IA e otimização linear.
 
+% === COMPETÊNCIAS TÉCNICAS ===
 \section{Competências Técnicas}
 \resumeSubHeadingList
   \resumeItem{\textbf{Linguagens}: C, C++, Rust, Zig, C\#, Java, Python, Lua, Assembly, SQL}
@@ -69,6 +82,7 @@ Engenheiro de software versátil com sólida experiência em programação de si
   \resumeItem{\textbf{Conceitos}: Algoritmos e Estruturas, Grafos e Otimização, POO, Engenharia Reversa, GPGPU}
 \resumeSubHeadingListEnd
 
+% === EXPERIÊNCIA PROFISSIONAL ===
 \section{Experiência Profissional}
 \resumeSubHeadingList
 
@@ -122,6 +136,7 @@ Engenheiro de software versátil com sólida experiência em programação de si
 
 \resumeSubHeadingListEnd
 
+% === PROJETOS ===
 \section{Projetos}
 \resumeSubHeadingList
 
@@ -167,6 +182,7 @@ Engenheiro de software versátil com sólida experiência em programação de si
 
 \resumeSubHeadingListEnd
 
+% === PRÊMIOS ===
 \section{Prêmios e Olimpíadas}
 \resumeSubHeadingList
   \resumeItem{\textbf{Medalhas de Ouro (2022 - 13ª Posição Nacional), Prata (2018, 2019) e Bronze (2017, 2021)} -- OBMEP}
@@ -176,6 +192,7 @@ Engenheiro de software versátil com sólida experiência em programação de si
   \resumeItem{\textbf{Menção Honrosa (2024)} -- Olimpíada Brasileira de Informática (OBI)}
 \resumeSubHeadingListEnd
 
+% === FORMAÇÃO ACADÊMICA ===
 \section{Formação Acadêmica}
 \resumeSubHeadingList
   \resumeSubheading
@@ -183,6 +200,7 @@ Engenheiro de software versátil com sólida experiência em programação de si
     {Bacharelado em Ciência da Computação e Ciência e Tecnologia}{Jun/2023 -- Dez/2027}
 \resumeSubHeadingListEnd
 
+% === CERTIFICAÇÕES ===
 \section{Certificações}
 \resumeSubHeadingList
   \resumeItem{\textbullet\ \href{https://efset.org/cert/9uJjv8}{EFSET English Certificate 60/100 (B2 Intermediário)}}

@@ -1,5 +1,6 @@
 \documentclass[letterpaper,10pt]{article}
 
+% === PACOTES E CONFIGURAÇÕES ===
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
@@ -13,6 +14,7 @@
 \usepackage{tabularx}
 \input{glyphtounicode}
 
+% Fonte Sans-Serif Limpa (Roboto)
 \usepackage[sfdefault]{roboto}
 
 \pagestyle{fancy}
@@ -22,10 +24,11 @@
 \renewcommand{\footrulewidth}{0pt}
 \setlength{\footskip}{5pt}
 
+% Ajuste de Margens
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
+\addtolength{\topmargin}{-0.5in}
 \addtolength{\textheight}{1.0in}
 
 \urlstyle{same}
@@ -33,13 +36,16 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
+% Formatação de Seções (Esconde números automaticamente)
 \titleformat{\section}{\Large\bfseries\scshape\raggedright}{}{0em}{}[\titlerule]
 
+% Otimização para leitura por ATS (Applicant Tracking Systems)
 \pdfgentounicode=1
 
+% === COMANDOS CUSTOMIZADOS ===
 \newcommand{\resumeItem}[1]{\item\small{#1}}
 \newcommand{\resumeSubheading}[4]{
-\vspace{-1pt}\item
+  \vspace{-1pt}\item
   \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
     \textbf{#1} & #2 \\
     \textit{#3} & \textit{#4} \\
@@ -49,18 +55,25 @@
 \newcommand{\resumeSubHeadingList}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 
+% ==============================================
+%               INÍCIO DO DOCUMENTO
+% ==============================================
 \begin{document}
 
+% === CABEÇALHO ===
 \begin{center}
   \textbf{\Huge Gabriel Frigo} \\
+  \vspace{2pt}
   \small +55 11 95570-2000 $|$ \href{mailto:gabriel.frigo4@gmail.com}{gabriel.frigo4@gmail.com} $|$
   \href{https://www.linkedin.com/in/gabriel-frigo-b6727b275/}{linkedin.com/in/gabriel-frigo} $|$
   \href{https://github.com/GabrielFrigo4}{github.com/GabrielFrigo4}
 \end{center}
 
+% === RESUMO ===
 \section{Summary}
 Versatile software engineer with solid experience in low-level systems and high-performance programming. Proficient in C, C++, Rust, and Python, with expertise in developing graphics applications (OpenGL, Vulkan, DirectX) and parallel computing (CUDA, OpenCL). Additional skills include developing ML/AI solutions and linear optimization.
 
+% === COMPETÊNCIAS TÉCNICAS ===
 \section{Technical Skills}
 \resumeSubHeadingList
   \resumeItem{\textbf{Languages}: C, C++, Rust, Zig, C\#, Java, Python, Lua, Assembly, SQL}
@@ -69,6 +82,7 @@ Versatile software engineer with solid experience in low-level systems and high-
   \resumeItem{\textbf{Concepts}: Data Structures and Algorithms, Graphs and Optimization, OOP, Reverse Engineering, GPGPU}
 \resumeSubHeadingListEnd
 
+% === EXPERIÊNCIA PROFISSIONAL ===
 \section{Professional Experience}
 \resumeSubHeadingList
 
@@ -122,6 +136,7 @@ Versatile software engineer with solid experience in low-level systems and high-
 
 \resumeSubHeadingListEnd
 
+% === PROJETOS ===
 \section{Projects}
 \resumeSubHeadingList
 
@@ -167,6 +182,7 @@ Versatile software engineer with solid experience in low-level systems and high-
 
 \resumeSubHeadingListEnd
 
+% === PRÊMIOS ===
 \section{Honors and Awards}
 \resumeSubHeadingList
   \resumeItem{\textbf{Gold (2022 - 13th National Rank), Silver (2018, 2019) and Bronze (2017, 2021) Medals} -- Brazilian Public Schools Math Olympiad (OBMEP)}
@@ -176,6 +192,7 @@ Versatile software engineer with solid experience in low-level systems and high-
   \resumeItem{\textbf{Honorable Mention (2024)} -- Brazilian Informatics Olympiad (OBI)}
 \resumeSubHeadingListEnd
 
+% === EDUCAÇÃO ===
 \section{Education}
 \resumeSubHeadingList
   \resumeSubheading
@@ -183,6 +200,7 @@ Versatile software engineer with solid experience in low-level systems and high-
     {Bachelor of Science in Computer Science and Science and Technology}{Jun/2023 -- Dec/2027}
 \resumeSubHeadingListEnd
 
+% === CERTIFICAÇÕES ===
 \section{Certifications}
 \resumeSubHeadingList
   \resumeItem{\textbullet\ \href{https://efset.org/cert/9uJjv8}{EFSET English Certificate 60/100 (B2 Intermediate)}}
