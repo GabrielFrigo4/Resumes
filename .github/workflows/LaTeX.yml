@@ -8,7 +8,7 @@ on:
 
 jobs:
   build_latex:
-    name: Build LaTeX (Múltiplos Arquivos)
+    name: Build LaTeX (Busca Automática)
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -18,60 +18,63 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Compilar todos os arquivos LaTeX
-        uses: xu-cheng/latex-action@v4
+        uses: xu-cheng/latex-action@v3
         with:
-          root_file: "*.tex"
+          root_file: "**/*.tex"
+          continue_on_error: true
+
+      - name: Organizar PDFs para Release
+        id: prep_files
+        run: |
+          mkdir -p dist
+          # Busca todos os PDFs gerados e os centraliza na pasta 'dist'
+          # Isso resolve o problema de links de download na Release
+          find . -name "*.pdf" -not -path "./dist/*" -exec cp {} dist/ \;
+          
+          if [ -z "$(ls -A dist)" ]; then
+            echo "Erro: Nenhum PDF foi gerado."
+            exit 1
+          fi
 
       - name: Deletar Release e Tag 'latest' antigas
-        uses: dev-drprasad/delete-tag-and-release@v1.0
+        uses: dev-drprasad/delete-tag-and-release@v1.1
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         with:
           delete_release: true
           tag_name: latest
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Sleep for 4 seconds
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-        run: sleep 4
-
-      - name: Preparar Metadados e Links da Release
+      - name: Preparar Links da Release
         id: meta_step
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: |
-          # Formatar data (Fuso Horário de São Paulo)
           export TZ="America/Sao_Paulo"
-          RAW_DATE="${{ github.event.head_commit.timestamp }}"
-          FORMATTED_DATE=$(date -d "$RAW_DATE" +'%d/%m/%Y %H:%M')
-          echo "DATA_FORMATADA=$FORMATTED_DATE" >> "$GITHUB_OUTPUT"
+          echo "DATA_FORMATADA=$(date +'%d/%m/%Y %H:%M')" >> "$GITHUB_OUTPUT"
 
-          # Gerar links de download dinâmicos para cada PDF encontrado
           {
             echo 'PDF_LINKS<<EOF'
-            for pdf in *.pdf; do
-              if [ -f "$pdf" ]; then
-                echo "- [\`$pdf\`](https://github.com/${{ github.repository }}/releases/download/latest/$pdf)"
-              fi
+            for pdf in dist/*.pdf; do
+              name=$(basename "$pdf")
+              echo "- [\`$name\`](https://github.com/${{ github.repository }}/releases/download/latest/$name)"
             done
             echo 'EOF'
           } >> "$GITHUB_OUTPUT"
 
       - name: Criar Nova Release 'latest'
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         with:
           tag_name: latest
-          name: Documentos LaTeX Compilados
+          name: "Documentos Atualizados (${{ steps.meta_step.outputs.DATA_FORMATADA }})"
           body: |
-            Build automatizado de todos os documentos LaTeX do repositório.
+            ### 📄 Documentos Gerados
+            Esta release contém as versões mais recentes dos documentos compilados automaticamente.
 
-            **Commit:** ${{ github.sha }}
-            **Data:** ${{ steps.meta_step.outputs.DATA_FORMATADA }}
-            
-            **Conteúdo Gerado:**
             ${{ steps.meta_step.outputs.PDF_LINKS }}
-          target_commitish: ${{ github.sha }}
-          files: "*.pdf"
-          draft: false
-          prerelease: false
+
+            ---
+            **ID do Commit:** `${{ github.sha }}`
+          files: "dist/*.pdf"
+          fail_on_unmatched_files: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

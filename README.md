@@ -24,18 +24,18 @@
 ## 📖 Estrutura dos Ficheiros
  Os documentos estão divididos em dois idiomas principais, mantendo a mesma base de layout e informações adaptadas para os seus respetivos mercados:
 
-### 📄 Currículos
- * 🇧🇷 **[`resume-pt.tex`](./resume-pt.tex):** Currículo em Português (PT-BR), ideal para vagas no Brasil, com foco no ecossistema de tecnologia e mercado nacional.
- * 🇺🇸 **[`resume-en.tex`](./resume-en.tex):** Resume em Inglês (EN-US), direcionado para oportunidades internacionais e empresas que adotam o inglês como idioma primário.
+### 📄 [Currículos](./Resume)
+ * 🇧🇷 **[`resume-pt.tex`](./Resume/resume-pt.tex):** Currículo em Português (PT-BR), ideal para vagas no Brasil, com foco no ecossistema de tecnologia e mercado nacional.
+ * 🇺🇸 **[`resume-en.tex`](./Resume/resume-en.tex):** Resume em Inglês (EN-US), direcionado para oportunidades internacionais e empresas que adotam o inglês como idioma primário.
 
-### ✉️ Cartas de Apresentação
- * 🇧🇷 **[`letter-pt.tex`](./letter-pt.tex):** Carta de Apresentação em Português, destacando a ligação entre a minha lógica matemática e implementação técnica.
- * 🇺🇸 **[`letter-en.tex`](./letter-en.tex):** Cover Letter em Inglês, estruturada para candidaturas globais e comunicação com equipas internacionais.
+### ✉️ [Cartas de Apresentação](./Letter)
+ * 🇧🇷 **[`letter-pt.tex`](./Letter/letter-pt.tex):** Carta de Apresentação em Português, destacando a ligação entre a minha lógica matemática e implementação técnica.
+ * 🇺🇸 **[`letter-en.tex`](./Letter/letter-en.tex):** Cover Letter em Inglês, estruturada para candidaturas globais e comunicação com equipas internacionais.
 
-### 📝 Templates Base (Boilerplates)
+### 📝 [Templates Base (Boilerplates)](./Template)
  Disponibilizei versões "limpas" e padronizadas do meu layout, otimizadas para ATS e livres de inconsistências (como o uso misto de `\section` e `\section*`), para quem quiser clonar a estrutura:
- * 🇧🇷 **[`template-pt.tex`](./template-pt.tex):** Template genérico em Português.
- * 🇺🇸 **[`template-en.tex`](./template-en.tex):** Template genérico em Inglês.
+ * 🇧🇷 **[`template-pt.tex`](./Template/template-pt.tex):** Template genérico em Português.
+ * 🇺🇸 **[`template-en.tex`](./Template/template-en.tex):** Template genérico em Inglês.
 
 ---
 
