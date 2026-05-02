@@ -41,6 +41,8 @@ jobs:
                   export TZ="America/Sao_Paulo"
                   printf -v FORMATTED_DATE '%(%d/%m/%Y %H:%M)T' -1
 
+                  echo "DATA_FORMATADA=${FORMATTED_DATE}" >> "${GITHUB_OUTPUT}"
+
                   cat <<EOF > "${RELEASE_NOTE}"
                   ### 📄 Documentos Gerados
                   Esta release contém as versões mais recentes dos documentos compilados automaticamente.
@@ -53,66 +55,46 @@ jobs:
                   EOF
 
                   shopt -s globstar nullglob
+                  declare -A DIRS_MAP
 
-                  for TOP_DIR_PATH in */; do
-                      TOP_DIR="${TOP_DIR_PATH%/}"
-                      
-                      if [[ "${TOP_DIR}" == "dist" || "${TOP_DIR}" == .* ]]; then
-                          continue
+                  for TEX_FILE in **/*.tex; do
+                      DIR_NAME="${TEX_FILE%/*}"
+                      if [[ "${DIR_NAME}" == "${TEX_FILE}" ]]; then
+                          DIR_NAME="Raiz"
                       fi
-
-                      PDF_FILES=( "${TOP_DIR}"/**/*.pdf )
                       
-                      if [[ ${#PDF_FILES[@]} -gt 0 ]]; then
-                          TITLE="${TOP_DIR^}"
-                          echo "## 📂 ${TITLE}" >> "${RELEASE_NOTE}"
-
-                          declare -A DIRS_WITH_PDFS
-                          for PDF in "${PDF_FILES[@]}"; do
-                              DIRS_WITH_PDFS["${PDF%/*}"]=1
-                          done
-
-                          mapfile -t SORTED_DIRS < <(printf '%s\n' "${!DIRS_WITH_PDFS[@]}" | sort)
-
-                          for SUBDIR in "${SORTED_DIRS[@]}"; do
-                              if [[ "${SUBDIR}" == "${TOP_DIR}" ]]; then
-                                  echo "- **./**" >> "${RELEASE_NOTE}"
-                              else
-                                  CLEAN_DIR="${SUBDIR#${TOP_DIR}/}"
-                                  echo "- **${CLEAN_DIR}/**" >> "${RELEASE_NOTE}"
-                              fi
-
-                              LOCAL_PDFS=( "${SUBDIR}"/*.pdf )
-                              for PDF_FILE in "${LOCAL_PDFS[@]}"; do
-                                  FILE_NAME="${PDF_FILE##*/}"
-                                  DOWNLOAD_URL="https://github.com/${{ github.repository }}/releases/download/latest/${FILE_NAME}"
-                                  
-                                  echo "  - 📄 [${FILE_NAME}](${DOWNLOAD_URL})" >> "${RELEASE_NOTE}"
-                                  
-                                  cp "${PDF_FILE}" "dist/${FILE_NAME}"
-                              done
-                          done
-                          echo "" >> "${RELEASE_NOTE}"
-                          
-                          unset DIRS_WITH_PDFS
+                      BASE_NAME="${TEX_FILE##*/}"
+                      PDF_NAME="${BASE_NAME%.tex}.pdf"
+                      
+                      if [[ -f "${PDF_NAME}" ]]; then
+                          cp "${PDF_NAME}" "dist/${PDF_NAME}"
+                          DIRS_MAP["${DIR_NAME}"]+="${PDF_NAME}|"
+                      elif [[ -f "${DIR_NAME}/${PDF_NAME}" ]]; then
+                          cp "${DIR_NAME}/${PDF_NAME}" "dist/${PDF_NAME}"
+                          DIRS_MAP["${DIR_NAME}"]+="${PDF_NAME}|"
                       fi
                   done
 
-                  ROOT_PDFS=( *.pdf )
-                  if [[ ${#ROOT_PDFS[@]} -gt 0 ]]; then
-                      echo "## 📂 Raiz" >> "${RELEASE_NOTE}"
-                      echo "- **./**" >> "${RELEASE_NOTE}"
-                      
-                      for PDF_FILE in "${ROOT_PDFS[@]}"; do
-                          FILE_NAME="${PDF_FILE}"
-                          DOWNLOAD_URL="https://github.com/${{ github.repository }}/releases/download/latest/${FILE_NAME}"
-                          
-                          echo "  - 📄 [${FILE_NAME}](${DOWNLOAD_URL})" >> "${RELEASE_NOTE}"
-                          
-                          cp "${PDF_FILE}" "dist/${FILE_NAME}"
+                  mapfile -t SORTED_DIRS < <(printf '%s\n' "${!DIRS_MAP[@]}" | sort)
+
+                  for DIR in "${SORTED_DIRS[@]}"; do
+                      if [[ "${DIR}" == "Raiz" ]]; then
+                          echo "## 📂 Raiz" >> "${RELEASE_NOTE}"
+                      else
+                          TITLE="${DIR^}"
+                          echo "## 📂 ${TITLE}" >> "${RELEASE_NOTE}"
+                      fi
+
+                      IFS='|' read -r -a PDF_LIST <<< "${DIRS_MAP[$DIR]}"
+                      mapfile -t SORTED_PDFS < <(printf '%s\n' "${PDF_LIST[@]}" | sort)
+
+                      for PDF_FILE in "${SORTED_PDFS[@]}"; do
+                          [[ -z "${PDF_FILE}" ]] && continue
+                          DOWNLOAD_URL="https://github.com/${{ github.repository }}/releases/download/latest/${PDF_FILE}"
+                          echo "- 📄 [${PDF_FILE}](${DOWNLOAD_URL})" >> "${RELEASE_NOTE}"
                       done
                       echo "" >> "${RELEASE_NOTE}"
-                  fi
+                  done
 
                   DIST_FILES=( dist/*.pdf )
                   if [[ ${#DIST_FILES[@]} -eq 0 ]]; then
@@ -125,7 +107,7 @@ jobs:
               if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
               with:
                   tag_name: latest
-                  name: "Documentos Atualizados"
+                  name: "Documentos Atualizados (${{ steps.prep_files.outputs.DATA_FORMATADA }})"
                   body_path: release_note.md
                   target_commitish: ${{ github.sha }}
                   files: "dist/*.pdf"
