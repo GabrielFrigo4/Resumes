@@ -1,80 +1,134 @@
 name: Compilar LaTeX e Gerar PDF
 
 on:
-  push:
-    branches:
-      - main
-      - master
+    push:
+        branches:
+            - main
+            - master
 
 jobs:
-  build_latex:
-    name: Build LaTeX (Busca Automática)
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    build_latex:
+        name: Build LaTeX & Release
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
 
-    steps:
-      - name: Fazer Checkout do código
-        uses: actions/checkout@v4
+        steps:
+            - name: Fazer Checkout do código
+              uses: actions/checkout@v4
 
-      - name: Compilar todos os arquivos LaTeX
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: "**/*.tex"
-          continue_on_error: true
+            - name: Compilar todos os arquivos LaTeX
+              uses: xu-cheng/latex-action@v3
+              with:
+                  root_file: "**/*.tex"
+                  continue_on_error: true
 
-      - name: Organizar PDFs para Release
-        id: prep_files
-        run: |
-          mkdir -p dist
-          # Busca todos os PDFs gerados e os centraliza na pasta 'dist'
-          # Isso resolve o problema de links de download na Release
-          find . -name "*.pdf" -not -path "./dist/*" -exec cp {} dist/ \;
-          
-          if [ -z "$(ls -A dist)" ]; then
-            echo "Erro: Nenhum PDF foi gerado."
-            exit 1
-          fi
+            - name: Deletar Release e Tag 'latest' antigas
+              uses: dev-drprasad/delete-tag-and-release@v1.1
+              if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+              with:
+                  delete_release: true
+                  tag_name: latest
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Deletar Release e Tag 'latest' antigas
-        uses: dev-drprasad/delete-tag-and-release@v1.1
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-        with:
-          delete_release: true
-          tag_name: latest
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+            - name: Organizar PDFs e Gerar Árvore de Descrição
+              id: prep_files
+              if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+              run: |
+                  mkdir -p dist
+                  RELEASE_NOTE="release_note.md"
 
-      - name: Preparar Links da Release
-        id: meta_step
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-        run: |
-          export TZ="America/Sao_Paulo"
-          echo "DATA_FORMATADA=$(date +'%d/%m/%Y %H:%M')" >> "$GITHUB_OUTPUT"
+                  export TZ="America/Sao_Paulo"
+                  printf -v FORMATTED_DATE '%(%d/%m/%Y %H:%M)T' -1
 
-          {
-            echo 'PDF_LINKS<<EOF'
-            for pdf in dist/*.pdf; do
-              name=$(basename "$pdf")
-              echo "- [\`$name\`](https://github.com/${{ github.repository }}/releases/download/latest/$name)"
-            done
-            echo 'EOF'
-          } >> "$GITHUB_OUTPUT"
+                  cat <<EOF > "${RELEASE_NOTE}"
+                  ### 📄 Documentos Gerados
+                  Esta release contém as versões mais recentes dos documentos compilados automaticamente.
 
-      - name: Criar Nova Release 'latest'
-        uses: softprops/action-gh-release@v2
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-        with:
-          tag_name: latest
-          name: "Documentos Atualizados (${{ steps.meta_step.outputs.DATA_FORMATADA }})"
-          body: |
-            ### 📄 Documentos Gerados
-            Esta release contém as versões mais recentes dos documentos compilados automaticamente.
+                  **Commit:** \`${{ github.sha }}\`
+                  **Data:** ${FORMATTED_DATE}
 
-            ${{ steps.meta_step.outputs.PDF_LINKS }}
+                  ---
 
-            ---
-            **ID do Commit:** `${{ github.sha }}`
-          files: "dist/*.pdf"
-          fail_on_unmatched_files: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  EOF
+
+                  shopt -s globstar nullglob
+
+                  for TOP_DIR_PATH in */; do
+                      TOP_DIR="${TOP_DIR_PATH%/}"
+                      
+                      if [[ "${TOP_DIR}" == "dist" || "${TOP_DIR}" == .* ]]; then
+                          continue
+                      fi
+
+                      PDF_FILES=( "${TOP_DIR}"/**/*.pdf )
+                      
+                      if [[ ${#PDF_FILES[@]} -gt 0 ]]; then
+                          TITLE="${TOP_DIR^}"
+                          echo "## 📂 ${TITLE}" >> "${RELEASE_NOTE}"
+
+                          declare -A DIRS_WITH_PDFS
+                          for PDF in "${PDF_FILES[@]}"; do
+                              DIRS_WITH_PDFS["${PDF%/*}"]=1
+                          done
+
+                          mapfile -t SORTED_DIRS < <(printf '%s\n' "${!DIRS_WITH_PDFS[@]}" | sort)
+
+                          for SUBDIR in "${SORTED_DIRS[@]}"; do
+                              if [[ "${SUBDIR}" == "${TOP_DIR}" ]]; then
+                                  echo "- **./**" >> "${RELEASE_NOTE}"
+                              else
+                                  CLEAN_DIR="${SUBDIR#${TOP_DIR}/}"
+                                  echo "- **${CLEAN_DIR}/**" >> "${RELEASE_NOTE}"
+                              fi
+
+                              LOCAL_PDFS=( "${SUBDIR}"/*.pdf )
+                              for PDF_FILE in "${LOCAL_PDFS[@]}"; do
+                                  FILE_NAME="${PDF_FILE##*/}"
+                                  DOWNLOAD_URL="https://github.com/${{ github.repository }}/releases/download/latest/${FILE_NAME}"
+                                  
+                                  echo "  - 📄 [${FILE_NAME}](${DOWNLOAD_URL})" >> "${RELEASE_NOTE}"
+                                  
+                                  cp "${PDF_FILE}" "dist/${FILE_NAME}"
+                              done
+                          done
+                          echo "" >> "${RELEASE_NOTE}"
+                          
+                          unset DIRS_WITH_PDFS
+                      fi
+                  done
+
+                  ROOT_PDFS=( *.pdf )
+                  if [[ ${#ROOT_PDFS[@]} -gt 0 ]]; then
+                      echo "## 📂 Raiz" >> "${RELEASE_NOTE}"
+                      echo "- **./**" >> "${RELEASE_NOTE}"
+                      
+                      for PDF_FILE in "${ROOT_PDFS[@]}"; do
+                          FILE_NAME="${PDF_FILE}"
+                          DOWNLOAD_URL="https://github.com/${{ github.repository }}/releases/download/latest/${FILE_NAME}"
+                          
+                          echo "  - 📄 [${FILE_NAME}](${DOWNLOAD_URL})" >> "${RELEASE_NOTE}"
+                          
+                          cp "${PDF_FILE}" "dist/${FILE_NAME}"
+                      done
+                      echo "" >> "${RELEASE_NOTE}"
+                  fi
+
+                  DIST_FILES=( dist/*.pdf )
+                  if [[ ${#DIST_FILES[@]} -eq 0 ]]; then
+                    echo "Erro: Nenhum PDF foi gerado."
+                    exit 1
+                  fi
+
+            - name: Criar Nova Release 'latest'
+              uses: softprops/action-gh-release@v2
+              if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+              with:
+                  tag_name: latest
+                  name: "Documentos Atualizados"
+                  body_path: release_note.md
+                  target_commitish: ${{ github.sha }}
+                  files: "dist/*.pdf"
+                  fail_on_unmatched_files: true
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
