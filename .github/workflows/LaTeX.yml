@@ -41,8 +41,6 @@ jobs:
                   export TZ="America/Sao_Paulo"
                   printf -v FORMATTED_DATE '%(%d/%m/%Y %H:%M)T' -1
 
-                  echo "DATA_FORMATADA=${FORMATTED_DATE}" >> "${GITHUB_OUTPUT}"
-
                   cat <<EOF > "${RELEASE_NOTE}"
                   ### 📄 Documentos Gerados
                   Esta release contém as versões mais recentes dos documentos compilados automaticamente.
@@ -107,7 +105,7 @@ jobs:
               if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
               with:
                   tag_name: latest
-                  name: "Documentos Atualizados (${{ steps.prep_files.outputs.DATA_FORMATADA }})"
+                  name: "Documentos Atualizados"
                   body_path: release_note.md
                   target_commitish: ${{ github.sha }}
                   files: "dist/*.pdf"
