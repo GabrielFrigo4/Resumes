@@ -1,0 +1,174 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[brazilian]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\usepackage[sfdefault]{roboto}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{5pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{\Large\bfseries\scshape\raggedright}{}{0em}{}[\titlerule]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{\item\small{#1}}
+\newcommand{\resumeSubheading}[4]{
+\vspace{-1pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{#3} & \textit{#4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingList}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\Huge Gabriel Frigo} \\
+  \small Santo André, SP $|$ +55 11 95570-2000 $|$ \href{mailto:gabriel.frigo4@gmail.com}{gabriel.frigo4@gmail.com} $|$
+  \href{https://linkedin.com/in/gabriel-frigo-b6727b275/}{linkedin.com/in/gabriel-frigo} \\
+  \href{https://github.com/GabrielFrigo4}{github.com/GabrielFrigo4} $|$
+  \href{https://gabrielfrigo.dev.br}{gabrielfrigo.dev.br}
+\end{center}
+
+\section{Resumo Profissional}
+Estudante de Ciência da Computação na UFABC com sólida formação algorítmica, perfil autodidata e foco em \textbf{Engenharia de Software Backend e Sistemas Concorrentes}. Medalhista de Ouro na OBMEP (13º no Brasil) e competidor no ICPC e Maratona SBC de Programação. Experiência prática no desenvolvimento de APIs e microsserviços (Go, Python, SQL, C/C++), conteinerização e infraestrutura em nuvem (Docker, Linux, OCI). Praticante ativo da mentalidade \textit{AI-First}, utilizando ferramentas agênticas (\textbf{Antigravity IDE e CLI}) como aceleradores de aprendizado, validação de \textit{corner cases} e construção de software robusto.
+
+\section{Competências Técnicas}
+\resumeSubHeadingList
+  \resumeItem{\textbf{Linguagens de Programação}: Go, Python, SQL, C, C++, Rust, Java, C\#, Zig, Bash, Lua}
+  \resumeItem{\textbf{Backend \& Cloud}: RESTful APIs, PostgreSQL, Docker, Podman, Linux (GNU/BSD), Oracle Cloud Infrastructure (OCI), Nginx, Caddy (HTTP/2, TLS), Postman, DBeaver}
+  \resumeItem{\textbf{AI-First \& Ferramentas}: Antigravity (IDE e CLI para prototipagem ágil, depuração e análise de \textit{edge cases}), Git, GitHub, GitLab, Shell Scripting}
+  \resumeItem{\textbf{Engenharia \& Arquitetura}: Estruturas de Dados Avançadas, Teoria dos Grafos e Otimização Combinatória, Arquitetura de Software, Microsserviços, Concorrência e Multiprocessamento, Design Patterns, Programação Funcional e POO}
+  \resumeItem{\textbf{Competências Pessoais}: Alta capacidade analítica, velocidade no domínio de novas tecnologias, questionamento crítico de soluções e comunicação colaborativa}
+  \resumeItem{\textbf{Idiomas}: Português (Nativo); Inglês (Intermediário - Certificado EFSET)}
+\resumeSubHeadingListEnd
+
+\section{Formação Acadêmica}
+\resumeSubHeadingList
+  \resumeSubheading
+    {Universidade Federal do ABC (UFABC)}{Santo André, SP}
+    {Bacharelado em Ciência da Computação}{Jun/2023 -- Jun/2028}
+  \resumeSubheading
+    {Universidade Federal do ABC (UFABC)}{Santo André, SP}
+    {Bacharelado em Ciência e Tecnologia}{Jun/2023 -- Dez/2027}
+\resumeSubHeadingListEnd
+
+\section{Experiência e Pesquisa em Engenharia}
+\resumeSubHeadingList
+
+  \resumeSubheading
+    {\href{https://github.com/GabrielFrigo4/IC_Networks_Flow}{Otimização e Fluxo em Redes: Teoria e Algoritmos}}{Out/2025 -- Set/2026}
+    {Iniciação Científica (CNPq / UFABC)}{Santo André, SP}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Pesquisa em Teoria dos Grafos, Algoritmos de Fluxo Máximo e Otimização Combinatória com foco em eficiência e escalabilidade.}
+      \resumeItem{\textbullet\ Implementação de estruturas de dados e algoritmos em C++, com análise rigorosa de complexidade assintótica e benchmarks.}
+    \resumeSubHeadingListEnd
+
+  \resumeSubheading
+    {Programação Competitiva GRUB (ICPC / Maratona SBC)}{Jan/2024 -- Presente}
+    {Membro e Competidor}{UFABC, SP}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Resolução de problemas algorítmicos complexos sob limites rígidos de tempo de execução e consumo de memória utilizando C/C++.}
+      \resumeItem{\textbullet\ Aplicação de programação dinâmica, grafos, geometria computacional e estruturas de dados avançadas.}
+    \resumeSubHeadingListEnd
+
+  \resumeSubheading
+    {Green Team Hacker Club (GTHC)}{Dez/2023 -- Presente}
+    {Analista de Projetos e Instrutor Técnico}{Santo André, SP}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Liderança técnica e mentoria para 10+ alunos sobre arquitetura de software, sistemas e boas práticas de versionamento com Git.}
+      \resumeItem{\textbullet\ Ensino de C/C++, Rust e fundamentos de baixo nível aplicados à construção de software eficiente.}
+    \resumeSubHeadingListEnd
+
+  \resumeSubheading
+    {\href{https://github.com/GabrielFrigo4/TT_MiniSumo_Arruela}{Robótica Competitiva Tamandutech}}{Jun/2023 -- Presente}
+    {Desenvolvedor de Software}{UFABC, SP}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Desenvolvimento de lógica de software de controle de tempo real e algoritmos autônomos para tomada de decisão em robôs de competição.}
+    \resumeSubHeadingListEnd
+
+  \resumeSubheading
+    {\href{https://github.com/GabrielFrigo4/PDPD_Ramsey}{Iniciação Científica PICME (IMPA / OBMEP)}}{Mar/2023 -- Jan/2026}
+    {Pesquisador Acadêmico}{UFABC, SP}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Desenvolvimento de raciocínio matemático formal e combinatória aplicada à estrutura de redes e grafos.}
+    \resumeSubHeadingListEnd
+
+\resumeSubHeadingListEnd
+
+\section{Projetos de Software}
+\resumeSubHeadingList
+
+  \resumeSubheading
+    {\href{https://shop.gabrielfrigo.dev.br}{Catálogo de Lojas e Produtos (Marketplace / E-commerce)}}{Jun/2026 -- Presente}
+    {Engenharia Backend \& Cloud}{Go, PocketBase, Podman, Linux, Oracle Cloud (OCI)}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Arquitetura e desenvolvimento de plataforma colaborativa de e-commerce e catálogo de produtos em produção real.}
+      \resumeItem{\textbullet\ Construção de backend modular em Go com persistência de dados estruturada e isolamento de serviços via contêineres Podman.}
+      \resumeItem{\textbullet\ Deploy em instância Linux na nuvem (OCI), com configuração de proxy reverso Caddy para terminação TLS/HTTPS e HTTP/2.}
+      \resumeItem{\textbullet\ Aplicação ativa em produção: \href{https://shop.gabrielfrigo.dev.br/}{shop.gabrielfrigo.dev.br}}
+    \resumeSubHeadingListEnd
+
+  \resumeSubheading
+    {\href{https://github.com/GabrielFrigo4/unix-sock}{Servidor Web HTTP Concorrente}}{Fev/2026 -- Mai/2026}
+    {Redes, Sistemas Concorrentes e Performance}{C, POSIX/BSD Sockets, Concorrência, Caddy}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Desenvolvimento de servidor HTTP implementado do zero em C com chamadas diretas à API de POSIX Sockets.}
+      \resumeItem{\textbullet\ Implementação de concorrência por multiprocessamento para tratamento simultâneo de requisições web com baixa latência.}
+      \resumeItem{\textbullet\ Deploy em ambiente de produção na nuvem com Caddy proxy; Projeto live: \href{https://game.gabrielfrigo.dev.br/}{game.gabrielfrigo.dev.br}}
+    \resumeSubHeadingListEnd
+
+  \resumeSubheading
+    {Mentoria em Algoritmos (Projeto Extensão OBI / UFABC)}{Jan/2026 -- Presente}
+    {Instrutor de Programação}{UFABC, SP}
+    \resumeSubHeadingList
+      \resumeItem{\textbullet\ Treinamento de 10+ alunos em lógica, estruturas de dados e técnicas de resolução de problemas computacionais para a OBI.}
+    \resumeSubHeadingListEnd
+
+\resumeSubHeadingListEnd
+
+\section{Prêmios e Conquistas Acadêmicas}
+\resumeSubHeadingList
+  \resumeItem{\textbf{Medalha de Ouro (13ª Posição Nacional, 2022)}, Prata (2018, 2019) e Bronze (2017, 2021) -- OBMEP}
+  \resumeItem{\textbf{14ª Posição (2026) e 15ª Posição (2025)} -- Maratona Paulista de Programação}
+  \resumeItem{\textbf{107ª Posição (2025) e 135ª Posição (2024) na Fase Regional} -- Maratona SBC de Programação / ICPC}
+  \resumeItem{\textbf{Menção Honrosa (2024)} -- Olimpíada Brasileira de Informática (OBI)}
+  \resumeItem{\textbf{Medalha de Prata (2023) e Menção Honrosa (2025)} -- Competição de Lógica (CELLM)}
+  \resumeItem{\textbf{Medalha de Bronze (2021)} -- Olimpíada Paulista de Matemática (OPM)}
+\resumeSubHeadingListEnd
+
+\section{Certificações}
+\resumeSubHeadingList
+  \resumeItem{\textbullet\ \href{https://efset.org/cert/9uJjv8}{EFSET English Certificate (Intermediário)}}
+\resumeSubHeadingListEnd
+
+\end{document}
