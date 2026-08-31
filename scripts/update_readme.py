@@ -66,6 +66,13 @@ def format_title(stem: str, language: str) -> str:
     return stem.replace("-", " ").title()
 
 
+def format_pdf_filename(company_raw: str, stem: str) -> str:
+    parts = stem.split("-")
+    if len(parts) == 2 and parts[1].isdigit():
+        return f"{company_raw}-{parts[1]}.pdf"
+    return f"{company_raw}-{stem}.pdf"
+
+
 def parse_company_document(tex_path: Path) -> CompanyDocument:
     company_raw = tex_path.parent.name.lower()
     company_name = COMPANY_NAMES.get(company_raw, tex_path.parent.name.title())
@@ -74,7 +81,7 @@ def parse_company_document(tex_path: Path) -> CompanyDocument:
     content = tex_path.read_text(encoding="utf-8", errors="ignore")
     language = detect_language(content)
     title = format_title(tex_path.stem, language)
-    pdf_filename = f"{tex_path.stem}.pdf"
+    pdf_filename = format_pdf_filename(company_raw, tex_path.stem)
 
     return CompanyDocument(
         company=company_name,
@@ -104,12 +111,12 @@ def build_markdown_table(documents: List[CompanyDocument]) -> str:
         return "_Nenhum documento específico encontrado._"
 
     rows = [
-        "| Empresa | Documento / Vaga | Idioma | Download |",
+        "| Empresa | Vaga / Cargo | Idioma | Download |",
         "| :--- | :--- | :---: | :---: |",
     ]
     for doc in documents:
         rows.append(
-            f"| **{doc.company}** | {doc.title} (`{doc.filename}`) | {doc.language} | "
+            f"| **{doc.company}** | {doc.title} | {doc.language} | "
             f"[![Baixar]({doc.badge_url})]({doc.download_url}) |"
         )
     return "\n".join(rows)
@@ -126,13 +133,7 @@ def update_readme_file(table_content: str) -> None:
         pattern = re.compile(f"{re.escape(TAG_START)}.*?{re.escape(TAG_END)}", re.DOTALL)
         updated_content = pattern.sub(block, content)
     else:
-        anchor = "## 🔗 Links Úteis"
-        section = (
-            f"## 🏢 Documentos por Empresa (companies)\n\n"
-            f"Documentos customizados para processos seletivos específicos:\n\n"
-            f"{block}\n\n---\n\n{anchor}"
-        )
-        updated_content = content.replace(anchor, section) if anchor in content else f"{content}\n\n{section}\n"
+        updated_content = f"{content}\n\n{block}\n"
 
     README_PATH.write_text(updated_content, encoding="utf-8")
 

@@ -77,14 +77,27 @@ jobs:
                       fi
                       
                       BASE_NAME="${TEX_FILE##*/}"
-                      PDF_NAME="${BASE_NAME%.tex}.pdf"
+                      RAW_PDF_NAME="${BASE_NAME%.tex}.pdf"
                       
-                      if [[ -f "${PDF_NAME}" ]]; then
-                          cp "${PDF_NAME}" "dist/${PDF_NAME}"
-                          DIRS_MAP["${DIR_NAME}"]+="${PDF_NAME}|"
-                      elif [[ -f "${DIR_NAME}/${PDF_NAME}" ]]; then
-                          cp "${DIR_NAME}/${PDF_NAME}" "dist/${PDF_NAME}"
-                          DIRS_MAP["${DIR_NAME}"]+="${PDF_NAME}|"
+                      if [[ "${DIR_NAME}" =~ ^companies/([^/]+) ]]; then
+                          COMPANY="${BASH_REMATCH[1]}"
+                          STEM="${BASE_NAME%.tex}"
+                          if [[ "${STEM}" =~ -([0-9]{4})$ ]]; then
+                              YEAR="${BASH_REMATCH[1]}"
+                              TARGET_PDF="${COMPANY}-${YEAR}.pdf"
+                          else
+                              TARGET_PDF="${COMPANY}-${STEM}.pdf"
+                          fi
+                      else
+                          TARGET_PDF="${RAW_PDF_NAME}"
+                      fi
+                      
+                      if [[ -f "${RAW_PDF_NAME}" ]]; then
+                          cp "${RAW_PDF_NAME}" "dist/${TARGET_PDF}"
+                          DIRS_MAP["${DIR_NAME}"]+="${TARGET_PDF}|"
+                      elif [[ -f "${DIR_NAME}/${RAW_PDF_NAME}" ]]; then
+                          cp "${DIR_NAME}/${RAW_PDF_NAME}" "dist/${TARGET_PDF}"
+                          DIRS_MAP["${DIR_NAME}"]+="${TARGET_PDF}|"
                       fi
                   done
 

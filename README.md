@@ -11,7 +11,9 @@
 
 ---
 
-## ⚡ Download Rápido (Última Release)
+## ⚡ Downloads Rápidos (Última Release)
+
+### 📄 Documentos Oficiais (Gerais)
 
 | Documento | Idioma | Formato | Link de Download |
 | :--- | :---: | :---: | :---: |
@@ -19,6 +21,16 @@
 | **Resume Oficial (EN-US)** | 🇺🇸 Inglês | PDF | [![Baixar PDF](https://img.shields.io/badge/PDF-Baixar-blue?style=flat-square&logo=adobeacrobatreader)](https://github.com/GabrielFrigo4/Resumes/releases/latest/download/resume-en.pdf) |
 | **Carta de Apresentação (PT-BR)** | 🇧🇷 Português | PDF | [![Baixar PDF](https://img.shields.io/badge/PDF-Baixar-darkred?style=flat-square&logo=adobeacrobatreader)](https://github.com/GabrielFrigo4/Resumes/releases/latest/download/letter-pt.pdf) |
 | **Cover Letter (EN-US)** | 🇺🇸 Inglês | PDF | [![Baixar PDF](https://img.shields.io/badge/PDF-Baixar-darkblue?style=flat-square&logo=adobeacrobatreader)](https://github.com/GabrielFrigo4/Resumes/releases/latest/download/letter-en.pdf) |
+
+### 🏢 Documentos por Empresa (companies)
+
+<!-- COMPANIES_TABLE_START -->
+| Empresa | Vaga / Cargo | Idioma | Download |
+| :--- | :--- | :---: | :---: |
+| **iFood** | iFuture 2027 | 🇧🇷 PT-BR | [![Baixar](https://img.shields.io/badge/PDF-Baixar-EA1D2C?style=flat-square&logo=adobeacrobatreader)](https://github.com/GabrielFrigo4/Resumes/releases/latest/download/ifood-2027.pdf) |
+| **Nubank** | Estágio 2027 | 🇧🇷 PT-BR | [![Baixar](https://img.shields.io/badge/PDF-Baixar-8A05BE?style=flat-square&logo=adobeacrobatreader)](https://github.com/GabrielFrigo4/Resumes/releases/latest/download/nubank-2027.pdf) |
+| **Uber** | Internship 2026 | 🇺🇸 EN-US | [![Baixar](https://img.shields.io/badge/PDF-Baixar-000000?style=flat-square&logo=adobeacrobatreader)](https://github.com/GabrielFrigo4/Resumes/releases/latest/download/uber-2026.pdf) |
+<!-- COMPANIES_TABLE_END -->
 
 ---
 
@@ -108,20 +120,6 @@ make check-links
 make export
 make clean
 ```
-
----
-
-## 🏢 Documentos por Empresa (companies)
-
-Documentos customizados para processos seletivos específicos:
-
-<!-- COMPANIES_TABLE_START -->
-| Empresa | Documento / Vaga | Idioma | Download |
-| :--- | :--- | :---: | :---: |
-| **iFood** | iFuture 2027 (`ifuture-2027.pdf`) | 🇧🇷 PT-BR | [![Baixar](https://img.shields.io/badge/PDF-Baixar-EA1D2C?style=flat-square&logo=adobeacrobatreader)](https://github.com/GabrielFrigo4/Resumes/releases/latest/download/ifuture-2027.pdf) |
-| **Nubank** | Estágio 2027 (`internship-2027.pdf`) | 🇧🇷 PT-BR | [![Baixar](https://img.shields.io/badge/PDF-Baixar-8A05BE?style=flat-square&logo=adobeacrobatreader)](https://github.com/GabrielFrigo4/Resumes/releases/latest/download/internship-2027.pdf) |
-| **Uber** | Internship 2026 (`internship-2026.pdf`) | 🇺🇸 EN-US | [![Baixar](https://img.shields.io/badge/PDF-Baixar-000000?style=flat-square&logo=adobeacrobatreader)](https://github.com/GabrielFrigo4/Resumes/releases/latest/download/internship-2026.pdf) |
-<!-- COMPANIES_TABLE_END -->
 
 ---
 
