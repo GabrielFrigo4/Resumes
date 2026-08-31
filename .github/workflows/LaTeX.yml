@@ -26,10 +26,17 @@ jobs:
                       chktex -v0 -n 1 -n 8 -n 13 -n 27 "${file}" || true
                   done
 
+            - name: Validar Links Externos
+              run: |
+                  python3 scripts/check_links.py || true
+
             - name: Compilar todos os arquivos LaTeX
               uses: xu-cheng/latex-action@v3
               with:
-                  root_file: "**/*.tex"
+                  root_file: |
+                      resume/*.tex
+                      letter/*.tex
+                      companies/*/*.tex
 
             - name: Deletar Release e Tag 'latest' antigas
               uses: dev-drprasad/delete-tag-and-release@v1.1
@@ -63,7 +70,7 @@ jobs:
                   shopt -s globstar nullglob
                   declare -A DIRS_MAP
 
-                  for TEX_FILE in **/*.tex; do
+                  for TEX_FILE in resume/*.tex letter/*.tex companies/*/*.tex; do
                       DIR_NAME="${TEX_FILE%/*}"
                       if [[ "${DIR_NAME}" == "${TEX_FILE}" ]]; then
                           DIR_NAME="Raiz"
@@ -120,3 +127,15 @@ jobs:
                   fail_on_unmatched_files: true
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Atualizar Tabela de Empresas no README.md
+              if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+              run: |
+                  python3 scripts/update_readme.py
+                  if ! git diff --quiet README.md; then
+                      git config user.name "github-actions[bot]"
+                      git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                      git add README.md
+                      git commit -m "docs: atualiza tabela de empresas no README [skip ci]"
+                      git push
+                  fi

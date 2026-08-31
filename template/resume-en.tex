@@ -37,6 +37,9 @@
 
 \pdfgentounicode=1
 
+% ==============================================================================
+% 🛠️ HELPER MACROS & LAYOUT COMMANDS
+% ==============================================================================
 \newcommand{\resumeItem}[1]{\item\small{#1}}
 \newcommand{\resumeSubheading}[4]{
 \vspace{-1pt}\item
@@ -49,19 +52,48 @@
 \newcommand{\resumeSubHeadingList}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 
+% ==============================================================================
+% 👤 PERSONAL CONTACT INFORMATION (Edit here to update the entire document)
+% ==============================================================================
+\newcommand{\candidateName}{Gabriel Frigo}
+\newcommand{\candidateLocation}{Santo André, SP}
+\newcommand{\candidatePhone}{+55 11 95570-2000}
+\newcommand{\candidateEmail}{gabriel.frigo4@gmail.com}
+\newcommand{\candidateLinkedInUser}{gabriel-frigo}
+\newcommand{\candidateLinkedInURL}{https://linkedin.com/in/gabriel-frigo-b6727b275/}
+\newcommand{\candidateGitHubUser}{GabrielFrigo4}
+\newcommand{\candidateGitHubURL}{https://github.com/GabrielFrigo4}
+\newcommand{\candidateWebsite}{gabrielfrigo.dev.br}
+\newcommand{\candidateWebsiteURL}{https://gabrielfrigo.dev.br}
+
+% ==============================================================================
+% 🎯 APPLICATION / TARGET POSITION (Optional)
+% ==============================================================================
+\newcommand{\targetRole}{Software Engineering}
+\newcommand{\targetCompany}{[Company Name]}
+
 \begin{document}
 
+% ==============================================================================
+% HEADER (Generated automatically from variables)
+% ==============================================================================
 \begin{center}
-  \textbf{\Huge Gabriel Frigo} \\
-  \small Santo André, SP $|$ +55 11 95570-2000 $|$ \href{mailto:gabriel.frigo4@gmail.com}{gabriel.frigo4@gmail.com} $|$
-  \href{https://linkedin.com/in/gabriel-frigo-b6727b275/}{linkedin.com/in/gabriel-frigo} \\
-  \href{https://github.com/GabrielFrigo4}{github.com/GabrielFrigo4} $|$
-  \href{https://gabrielfrigo.dev.br}{gabrielfrigo.dev.br}
+  \textbf{\Huge \candidateName} \\ \vspace{3pt}
+  \small \candidateLocation\ $|$ \candidatePhone\ $|$ \href{mailto:\candidateEmail}{\candidateEmail} $|$
+  \href{\candidateLinkedInURL}{linkedin.com/in/\candidateLinkedInUser} \\
+  \href{\candidateGitHubURL}{github.com/\candidateGitHubUser} $|$
+  \href{\candidateWebsiteURL}{\candidateWebsite}
 \end{center}
 
+% ==============================================================================
+% SECTION: PROFESSIONAL SUMMARY
+% ==============================================================================
 \section{Summary}
 Computer Science student at UFABC with a strong analytical foundation (Gold Medalist at OBMEP, 13th National Rank; ICPC/SBC competitor). Versatile, self-directed profile bridging academic research and Operations Research with real-world production engineering: combines modern cloud microservices (Go, Python, Docker/Podman, OpenTofu IaC) with the craft of Unix systems (C/C++, Rust, FreeBSD, Jails, POSIX). AI-First practitioner leveraging Socratic learning, mathematical modeling, and agentic tools to build scalable, high-performance software.
 
+% ==============================================================================
+% SECTION: SKILLS & LANGUAGES
+% ==============================================================================
 \section{Skills \& Languages}
 \resumeSubHeadingList
   \resumeItem{\textbf{Languages}: C, C++, Rust, Zig, Go, Scala, C\#, Java, Python, Lua, Assembly, SQL}
@@ -72,62 +104,71 @@ Computer Science student at UFABC with a strong analytical foundation (Gold Meda
   \resumeItem{\textbf{Languages}: Portuguese (Native); English (Intermediate).}
 \resumeSubHeadingListEnd
 
+% ==============================================================================
+% SECTION: EDUCATION
+% ==============================================================================
 \section{Education}
 \resumeSubHeadingList
   \resumeSubheading
-    {Universidade Federal do ABC (UFABC)}{Santo André, SP}
-    {B.S. in Computer Science}{Jun/2023 -- Jun/2028}
+    {Federal University of ABC (UFABC)}{Santo André, SP}
+    {Bachelor of Computer Science}{Jun/2023 -- Jun/2028}
   \resumeSubheading
-    {Universidade Federal do ABC (UFABC)}{Santo André, SP}
-    {B.S. in Science and Technology}{Jun/2023 -- Dec/2027}
+    {Federal University of ABC (UFABC)}{Santo André, SP}
+    {Bachelor of Science and Technology}{Jun/2023 -- Dec/2027}
 \resumeSubHeadingListEnd
 
-\section{Professional Experience}
+% ==============================================================================
+% SECTION: PROFESSIONAL EXPERIENCE & RESEARCH
+% ==============================================================================
+\section{Experience}
 \resumeSubHeadingList
 
   \resumeSubheading
     {\href{https://github.com/GabrielFrigo4/IC_Networks_Flow}{Network Flow Problems: Theory and Algorithms}}{Oct/2025 -- Sep/2026}
-    {Undergraduate Researcher (CNPq)}{UFABC, SP}
+    {Undergraduate Research (CNPq)}{UFABC, SP}
     \resumeSubHeadingList
       \resumeItem{\textbullet\ Research focused on Network Flow Algorithms and Combinatorial Optimization.}
-      \resumeItem{\textbullet\ Studied Graph Theory and developed algorithmic implementations in C++.}
+      \resumeItem{\textbullet\ Graph Theory study and algorithmic implementations in C++.}
     \resumeSubHeadingListEnd
 
   \resumeSubheading
-    {GRUB Competitive Programming}{Jan/2024 -- Present}
+    {Competitive Programming GRUB}{Jan/2024 -- Present}
     {Team Member}{UFABC, SP}
     \resumeSubHeadingList
       \resumeItem{\textbullet\ Participated in the São Paulo Programming Marathon and the International Collegiate Programming Contest (ICPC).}
-      \resumeItem{\textbullet\ Solved complex problems using C/C++ and advanced data structures.}
+      \resumeItem{\textbullet\ Solved complex algorithmic problems using C/C++ and advanced data structures.}
     \resumeSubHeadingListEnd
 
   \resumeSubheading
     {Green Team Hacker Club (GTHC)}{Dec/2023 -- Present}
     {Project Analyst}{Santo André, SP}
     \resumeSubHeadingList
-      \resumeItem{\textbullet\ Managed projects and provided technical instruction to 10+ students in the GTHC Low Level / Infrastructure course.}
-      \resumeItem{\textbullet\ Taught C/C++, Rust, Zig, and Assembly focused on systems and low-level programming.}
+      \resumeItem{\textbullet\ Managed technical projects and provided technical instruction for 10+ students in Low-Level / Infrastructure tracks.}
+      \resumeItem{\textbullet\ Taught C/C++, Rust, Zig, and Assembly focused on systems engineering.}
     \resumeSubHeadingListEnd
 
   \resumeSubheading
     {\href{https://github.com/GabrielFrigo4/TT_MiniSumo_Arruela}{Tamandutech Competitive Robotics}}{Jun/2023 -- Apr/2026}
     {Software Developer}{UFABC, SP}
     \resumeSubHeadingList
-      \resumeItem{\textbullet\ Developed software and control systems for ``mini sumo'' category robots.}
-      \resumeItem{\textbullet\ Applied low-level programming concepts for hardware integration.}
+      \resumeItem{\textbullet\ Developed firmware and control algorithms for autonomous ``mini sumo'' robots.}
+      \resumeItem{\textbullet\ Applied low-level programming concepts for hardware-software integration.}
       \resumeItem{\textbullet\ Additional repository: \href{https://github.com/GabrielFrigo4/TTCC}{TTCC}.}
     \resumeSubHeadingListEnd
 
   \resumeSubheading
-    {\href{https://github.com/GabrielFrigo4/PDPD_Ramsey}{PICME Scientific Research}}{Mar/2023 -- Jan/2026}
+    {\href{https://github.com/GabrielFrigo4/PDPD_Ramsey}{PICME Undergraduate Research}}{Mar/2023 -- Jan/2026}
     {Researcher}{UFABC, SP}
     \resumeSubHeadingList
-      \resumeItem{\textbullet\ Conducted advanced research in Ramsey Theory and Infinite Combinatorics, focusing on graph substructures and cardinality.}
-      \resumeItem{\textbullet\ Developed reports and formal proofs under the PICME excellence program (IMPA/OBMEP).}
+      \resumeItem{\textbullet\ Advanced research in Ramsey Theory and Infinite Combinatorics, investigating graph substructures and cardinality.}
+      \resumeItem{\textbullet\ Authored formal proofs and research reports under the PICME excellence program (IMPA/OBMEP).}
     \resumeSubHeadingListEnd
 
 \resumeSubHeadingListEnd
 
+% ==============================================================================
+% SECTION: PROJECTS
+% ==============================================================================
 \section{Projects}
 \resumeSubHeadingList
 
@@ -168,10 +209,13 @@ Computer Science student at UFABC with a strong analytical foundation (Gold Meda
 
 \resumeSubHeadingListEnd
 
+% ==============================================================================
+% SECTION: HONORS & ACADEMIC COMPETITIONS
+% ==============================================================================
 \section{Honors \& Academic Competitions}
 \resumeSubHeadingList
   \resumeItem{\textbf{14th Place (2026) and 15th Place (2025)} -- S\~{a}o Paulo Programming Marathon}
-  \resumeItem{\textbf{107th (2025) and 135th (2024) Places in the Regional Phase} -- SBC Programming Marathon and ICPC}
+  \resumeItem{\textbf{42nd (2026), 107th (2025), and 135th (2024) Places in the Regional Phase} -- SBC Programming Marathon and ICPC}
   \resumeItem{\textbf{Honorable Mention (2024)} -- OBI (Brazilian Informatics Olympiad)}
   \resumeItem{\textbf{Silver Medal (2023) and Honorable Mention (2025)} -- CELLM (Logic Competition)}
   \resumeItem{\textbf{Bronze Medal (2021)} -- OPM (S\~{a}o Paulo Mathematics Olympiad)}
@@ -179,6 +223,9 @@ Computer Science student at UFABC with a strong analytical foundation (Gold Meda
   \resumeItem{\textbf{Gold (2022 - 13th National Rank), Silver (2018, 2019), and Bronze (2017, 2021) Medals} -- OBMEP (Brazilian Public Schools Math Olympiad)}
 \resumeSubHeadingListEnd
 
+% ==============================================================================
+% SECTION: CERTIFICATIONS
+% ==============================================================================
 \section{Certifications}
 \resumeSubHeadingList
   \resumeItem{\textbullet\ \href{https://efset.org/cert/9uJjv8}{EFSET English Certificate (Intermediate)}}

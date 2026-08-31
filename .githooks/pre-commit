@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+set -e
+
+python3 scripts/update_readme.py
+
+if ! git diff --quiet README.md; then
+    git add README.md
+fi
+
+if command -v chktex >/dev/null 2>&1; then
+    staged_tex=$(git diff --cached --name-only --diff-filter=ACM | grep '\.tex$' || true)
+    if [ -n "$staged_tex" ]; then
+        echo "Executando chktex nos arquivos staged..."
+        for file in $staged_tex; do
+            chktex -v0 -n 1 -n 8 -n 13 -n 27 "$file" || true
+        done
+    fi
+fi

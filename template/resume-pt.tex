@@ -37,6 +37,9 @@
 
 \pdfgentounicode=1
 
+% ==============================================================================
+% 🛠️ MACROS E FUNÇÕES AUXILIARES
+% ==============================================================================
 \newcommand{\resumeItem}[1]{\item\small{#1}}
 \newcommand{\resumeSubheading}[4]{
 \vspace{-1pt}\item
@@ -49,19 +52,48 @@
 \newcommand{\resumeSubHeadingList}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 
+% ==============================================================================
+% 👤 INFORMAÇÕES PESSOAIS E CONTATO (Edite aqui para alterar no documento)
+% ==============================================================================
+\newcommand{\candidateName}{Gabriel Frigo}
+\newcommand{\candidateLocation}{Santo André, SP}
+\newcommand{\candidatePhone}{+55 11 95570-2000}
+\newcommand{\candidateEmail}{gabriel.frigo4@gmail.com}
+\newcommand{\candidateLinkedInUser}{gabriel-frigo}
+\newcommand{\candidateLinkedInURL}{https://linkedin.com/in/gabriel-frigo-b6727b275/}
+\newcommand{\candidateGitHubUser}{GabrielFrigo4}
+\newcommand{\candidateGitHubURL}{https://github.com/GabrielFrigo4}
+\newcommand{\candidateWebsite}{gabrielfrigo.dev.br}
+\newcommand{\candidateWebsiteURL}{https://gabrielfrigo.dev.br}
+
+% ==============================================================================
+% 🎯 DADOS DA VAGA / PERSONALIZAÇÃO (Opcional no Resume)
+% ==============================================================================
+\newcommand{\targetRole}{Engenharia de Software}
+\newcommand{\targetCompany}{[Nome da Empresa]}
+
 \begin{document}
 
+% ==============================================================================
+% CABEÇALHO (Gerado dinamicamente a partir das variáveis)
+% ==============================================================================
 \begin{center}
-  \textbf{\Huge Gabriel Frigo} \\
-  \small Santo André, SP $|$ +55 11 95570-2000 $|$ \href{mailto:gabriel.frigo4@gmail.com}{gabriel.frigo4@gmail.com} $|$
-  \href{https://linkedin.com/in/gabriel-frigo-b6727b275/}{linkedin.com/in/gabriel-frigo} \\
-  \href{https://github.com/GabrielFrigo4}{github.com/GabrielFrigo4} $|$
-  \href{https://gabrielfrigo.dev.br}{gabrielfrigo.dev.br}
+  \textbf{\Huge \candidateName} \\ \vspace{3pt}
+  \small \candidateLocation\ $|$ \candidatePhone\ $|$ \href{mailto:\candidateEmail}{\candidateEmail} $|$
+  \href{\candidateLinkedInURL}{linkedin.com/in/\candidateLinkedInUser} \\
+  \href{\candidateGitHubURL}{github.com/\candidateGitHubUser} $|$
+  \href{\candidateWebsiteURL}{\candidateWebsite}
 \end{center}
 
+% ==============================================================================
+% SEÇÃO: RESUMO PROFISSIONAL
+% ==============================================================================
 \section{Resumo}
 Estudante de Ciência da Computação na UFABC com sólida base analítica (Medalhista de Ouro na OBMEP, 13º no Brasil; competidor ICPC/SBC). Perfil versátil e autodidata que conecta a pesquisa acadêmica e Pesquisa Operacional à engenharia de produção no mundo real: une o pragmatismo de microsserviços em nuvem (Go, Python, Docker/Podman, OpenTofu IaC) aos fundamentos artesanais de sistemas Unix (C/C++, Rust, FreeBSD, Jails, POSIX). Praticante da cultura AI-First e do método socrático, aliando modelagem matemática e ferramentas agênticas na construção de soluções escaláveis e de alta performance.
 
+% ==============================================================================
+% SEÇÃO: COMPETÊNCIAS E IDIOMAS
+% ==============================================================================
 \section{Competências e Idiomas}
 \resumeSubHeadingList
   \resumeItem{\textbf{Linguagens}: C, C++, Rust, Zig, Go, Scala, C\#, Java, Python, Lua, Assembly, SQL}
@@ -72,6 +104,9 @@ Estudante de Ciência da Computação na UFABC com sólida base analítica (Meda
   \resumeItem{\textbf{Idiomas}: Português (Fluente); Inglês (Intermediário).}
 \resumeSubHeadingListEnd
 
+% ==============================================================================
+% SEÇÃO: FORMAÇÃO ACADÊMICA
+% ==============================================================================
 \section{Formação Acadêmica}
 \resumeSubHeadingList
   \resumeSubheading
@@ -82,6 +117,9 @@ Estudante de Ciência da Computação na UFABC com sólida base analítica (Meda
     {Bacharelado em Ciência e Tecnologia}{Jun/2023 -- Dez/2027}
 \resumeSubHeadingListEnd
 
+% ==============================================================================
+% SEÇÃO: EXPERIÊNCIA PROFISSIONAL / PESQUISA
+% ==============================================================================
 \section{Experiência Profissional}
 \resumeSubHeadingList
 
@@ -128,6 +166,9 @@ Estudante de Ciência da Computação na UFABC com sólida base analítica (Meda
 
 \resumeSubHeadingListEnd
 
+% ==============================================================================
+% SEÇÃO: PROJETOS EM DESTAQUE
+% ==============================================================================
 \section{Projetos}
 \resumeSubHeadingList
 
@@ -168,10 +209,13 @@ Estudante de Ciência da Computação na UFABC com sólida base analítica (Meda
 
 \resumeSubHeadingListEnd
 
+% ==============================================================================
+% SEÇÃO: PRÊMIOS E COMPETIÇÕES ACADÊMICAS
+% ==============================================================================
 \section{Prêmios e Competições Acadêmicas}
 \resumeSubHeadingList
   \resumeItem{\textbf{14ª Posição (2026) e 15ª Posição (2025)} -- Maratona Paulista de Programação}
-  \resumeItem{\textbf{107ª Posição (2025) e 135ª Posição (2024) na Fase Regional} -- Maratona SBC de Programação e ICPC}
+  \resumeItem{\textbf{42ª Posição (2026), 107ª Posição (2025) e 135ª Posição (2024) na Fase Regional} -- Maratona SBC de Programação e ICPC}
   \resumeItem{\textbf{Menção Honrosa (2024)} -- Olimpíada Brasileira de Informática (OBI)}
   \resumeItem{\textbf{Medalha de Prata (2023) e Menção Honrosa (2025)} -- Competição de Lógica (CELLM)}
   \resumeItem{\textbf{Medalha de Bronze (2021)} -- Olimpíada Paulista de Matemática (OPM)}
@@ -179,6 +223,9 @@ Estudante de Ciência da Computação na UFABC com sólida base analítica (Meda
   \resumeItem{\textbf{Medalhas de Ouro (2022 - 13ª Posição Nacional), Prata (2018, 2019) e Bronze (2017, 2021)} -- OBMEP}
 \resumeSubHeadingListEnd
 
+% ==============================================================================
+% SEÇÃO: CERTIFICAÇÕES
+% ==============================================================================
 \section{Certificações}
 \resumeSubHeadingList
   \resumeItem{\textbullet\ \href{https://efset.org/cert/9uJjv8}{EFSET English Certificate (Intermediário)}}

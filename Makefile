@@ -1,49 +1,84 @@
-.PHONY: all clean resumes letters templates companies
+.POSIX:
+.PHONY: all resumes letters templates companies readme hooks check-links export clean
 
-# ##############################################################################
-# DESCOBERTA DINÂMICA DE ARQUIVOS
-# ##############################################################################
-RESUMES_SRC := $(wildcard Resume/*.tex)
-RESUMES_PDF := $(RESUMES_SRC:.tex=.pdf)
+# ######################################
+# COMPILADOR
+# ######################################
+PDFLATEX      = pdflatex
+PDFLATEXFLAGS = -interaction=nonstopmode -halt-on-error
 
-LETTERS_SRC := $(wildcard Letter/*.tex)
-LETTERS_PDF := $(LETTERS_SRC:.tex=.pdf)
+# ######################################
+# MACROS E FONTES
+# ######################################
+RESUMES_SRC = \
+	resume/resume-en.tex \
+	resume/resume-pt.tex
+RESUMES_PDF = $(RESUMES_SRC:.tex=.pdf)
 
-TEMPLATES_SRC := $(wildcard Template/*.tex)
-TEMPLATES_PDF := $(TEMPLATES_SRC:.tex=.pdf)
+LETTERS_SRC = \
+	letter/letter-en.tex \
+	letter/letter-pt.tex
+LETTERS_PDF = $(LETTERS_SRC:.tex=.pdf)
 
-COMPANIES_SRC := $(wildcard Companies/*/*.tex)
-COMPANIES_PDF := $(COMPANIES_SRC:.tex=.pdf)
+COMPANIES_SRC = \
+	companies/ifood/ifuture-2027.tex \
+	companies/nubank/internship-2027.tex \
+	companies/uber/internship-2026.tex
+COMPANIES_PDF = $(COMPANIES_SRC:.tex=.pdf)
 
-ALL_PDF := $(RESUMES_PDF) $(LETTERS_PDF) $(TEMPLATES_PDF) $(COMPANIES_PDF)
+TEMPLATES_SRC = \
+	template/letter-en.tex \
+	template/letter-pt.tex \
+	template/resume-en.tex \
+	template/resume-pt.tex
+TEMPLATES_PDF = $(TEMPLATES_SRC:.tex=.pdf)
 
-# ##############################################################################
-# COMPILAÇÃO GERAL (TODOS OS ARQUIVOS)
-# ##############################################################################
+ALL_PDF = $(RESUMES_PDF) $(LETTERS_PDF) $(COMPANIES_PDF)
+
+# ######################################
+# ALVOS PRINCIPAIS
+# ######################################
 all: $(ALL_PDF)
 
-# ##############################################################################
-# COMPILAÇÃO ESPECÍFICA POR PASTA
-# ##############################################################################
 resumes: $(RESUMES_PDF)
 
 letters: $(LETTERS_PDF)
 
-templates: $(TEMPLATES_PDF)
-
 companies: $(COMPANIES_PDF)
 
-# ##############################################################################
-# REGRA DE COMPILAÇÃO (.tex -> .pdf)
-# ##############################################################################
-%.pdf: %.tex
-	pdflatex -output-directory=$(dir $<) $<
+templates: $(TEMPLATES_PDF)
 
-# ##############################################################################
-# LIMPEZA DOS ARQUIVOS GERADOS
-# ##############################################################################
+# ######################################
+# UTILITÁRIOS
+# ######################################
+readme:
+	python3 scripts/update_readme.py
+
+hooks:
+	git config core.hooksPath .githooks
+	chmod +x .githooks/*
+	@echo "Git hooks ativados com sucesso!"
+
+check-links:
+	python3 scripts/check_links.py
+
+export:
+	python3 scripts/export_text.py
+
+# ######################################
+# REGRAS DE INFERÊNCIA
+# ######################################
+.SUFFIXES:
+.SUFFIXES: .tex .pdf
+
+.tex.pdf:
+	$(PDFLATEX) $(PDFLATEXFLAGS) -output-directory="$(@D)" "$<"
+
+# ######################################
+# LIMPEZA
+# ######################################
 clean:
-	rm -f Resume/*.aux Resume/*.log Resume/*.out Resume/*.pdf
-	rm -f Letter/*.aux Letter/*.log Letter/*.out Letter/*.pdf
-	rm -f Template/*.aux Template/*.log Template/*.out Template/*.pdf
-	rm -f Companies/*/*.aux Companies/*/*.log Companies/*/*.out Companies/*/*.pdf
+	rm -f resume/*.aux resume/*.log resume/*.out resume/*.pdf
+	rm -f letter/*.aux letter/*.log letter/*.out letter/*.pdf
+	rm -f template/*.aux template/*.log template/*.out template/*.pdf
+	rm -f companies/*/*.aux companies/*/*.log companies/*/*.out companies/*/*.pdf

@@ -1,0 +1,92 @@
+============================================================
+GABRIEL FRIGO
+============================================================
+Santo André, SP | +55 11 95570-2000 | gabriel.frigo4@gmail.com |
+linkedin.com/in/gabriel-frigo (https://linkedin.com/in/gabriel-frigo-b6727b275/)
+github.com/GabrielFrigo4 (https://github.com/GabrielFrigo4) |
+gabrielfrigo.dev.br (https://gabrielfrigo.dev.br)
+
+
+--- SUMMARY ---
+Computer Science student at UFABC with a strong analytical foundation (Gold Medalist at OBMEP, 13th National Rank; ICPC/SBC competitor). Versatile, self-directed profile bridging academic research and Operations Research with real-world production engineering: combines modern cloud microservices (Go, Python, Docker/Podman, OpenTofu IaC) with the craft of Unix systems (C/C++, Rust, FreeBSD, Jails, POSIX). AI-First practitioner leveraging Socratic learning, mathematical modeling, and agentic tools to build scalable, high-performance software.
+
+--- SKILLS & LANGUAGES ---
+• Languages: C, C++, Rust, Zig, Go, Scala, C#, Java, Python, Lua, Assembly, SQL
+• Tools: Git, Got (Game of Trees), GitHub Actions (CI/CD), Linux, FreeBSD, Docker, Podman, OpenTofu/Terraform (IaC), Magalu Cloud, Oracle Cloud (OCI), LXC (Incus), Jails (Bastille), POSIX Make (bmake/gmake), Nginx/Caddy, PostgreSQL, SQLite, DBeaver, Postman
+• Libraries & Frameworks: Google OR-Tools, Antigravity IDE/CLI, CUDA, OpenGL, Vulkan, OpenCL, SDL3, WinAPI, OpenCV, Pandas, NumPy
+• Concepts: Data Structures & Algorithms, Operations Research (VRPTW), Graphs & Optimization, CGo / Interoperability, Software Architecture, POSIX APIs / Syscalls, Design Patterns, OOP, Functional Programming, GPGPU
+• Soft Skills: Objective communication; ability to break down complex tasks; goal-oriented; committed to targets and teamwork; fast learner; values small victories.
+• Languages: Portuguese (Native); English (Intermediate).
+
+--- EDUCATION ---
+
+• Universidade Federal do ABC (UFABC) | Santo André, SP
+  B.S. in Computer Science - Jun/2023 – Jun/2028
+
+• Universidade Federal do ABC (UFABC) | Santo André, SP
+  B.S. in Science and Technology - Jun/2023 – Dec/2027
+
+--- PROFESSIONAL EXPERIENCE ---
+
+• Network Flow Problems: Theory and Algorithms (https://github.com/GabrielFrigo4/IC_Networks_Flow) | Oct/2025 – Sep/2026
+  Undergraduate Researcher (CNPq) - UFABC, SP
+    - Research focused on Network Flow Algorithms and Combinatorial Optimization.
+    - Studied Graph Theory and developed algorithmic implementations in C++.
+
+• GRUB Competitive Programming | Jan/2024 – Present
+  Team Member - UFABC, SP
+    - Participated in the São Paulo Programming Marathon and the International Collegiate Programming Contest (ICPC).
+    - Solved complex problems using C/C++ and advanced data structures.
+
+• Green Team Hacker Club (GTHC) | Dec/2023 – Present
+  Project Analyst - Santo André, SP
+    - Managed projects and provided technical instruction to 10+ students in the GTHC Low Level / Infrastructure course.
+    - Taught C/C++, Rust, Zig, and Assembly focused on systems and low-level programming.
+
+• Tamandutech Competitive Robotics (https://github.com/GabrielFrigo4/TT_MiniSumo_Arruela) | Jun/2023 – Apr/2026
+  Software Developer - UFABC, SP
+    - Developed software and control systems for "mini sumo" category robots.
+    - Applied low-level programming concepts for hardware integration.
+    - Additional repository: TTCC (https://github.com/GabrielFrigo4/TTCC).
+
+• PICME Scientific Research (https://github.com/GabrielFrigo4/PDPD_Ramsey) | Mar/2023 – Jan/2026
+  Researcher - UFABC, SP
+    - Conducted advanced research in Ramsey Theory and Infinite Combinatorics, focusing on graph substructures and cardinality.
+    - Developed reports and formal proofs under the PICME excellence program (IMPA/OBMEP).
+
+--- PROJECTS ---
+
+• OptiLaser (Logistics Optimization) (https://github.com/GabrielFrigo4/optilaser) | Jul/2026 – Present
+  Operations Research, Backend & Cloud - Go/CGo, OR-Tools, PocketBase, OpenTofu, Magalu Cloud
+    - Route optimization and time-window allocation (VRPTW) in <3s using Google OR-Tools.
+    - Cross-platform Go and CGo backend (FreeBSD/Linux) with embedded PocketBase database.
+    - Production deployment via Podman with Rocky Linux provisioned using OpenTofu on Magalu Cloud.
+
+• BioBlocks Extension Project (https://github.com/Edutesc/Project_Bioblocks) | Mar/2026 – Present
+  Interactive Biochemistry Quiz Game - Firebase, C#, Unity
+    - Educational biochemistry game aimed at undergraduate and graduate students.
+    - Implemented gamified quiz mechanics using Unity and Firebase.
+
+• Concurrent HTTP Web Server (https://github.com/GabrielFrigo4/unix-sock) | Feb/2026 – May/2026
+  Low-Level Systems & Networking - C, GNU/BSD Sockets, Caddy, HTTP/2
+    - HTTP server in C from scratch, built on the GNU/BSD Sockets API, cross-platform with GNU/Linux and FreeBSD.
+    - Fork-based concurrency (multiprocessing) for handling simultaneous requests.
+    - Deployed on Oracle Cloud (OCI) with Caddy reverse proxy (HTTPS, HTTP/2).
+    - Live Project: game.gabrielfrigo.dev.br (https://game.gabrielfrigo.dev.br/)
+
+• OBI Extension Project | Jan/2026 – Present
+  Instructor - UFABC, SP
+    - Core member of an initiative aimed at increasing regional representation in the Brazilian Informatics Olympiad (OBI).
+    - Mentored 10+ students in algorithms and data structures across multiple competition levels.
+
+--- HONORS & ACADEMIC COMPETITIONS ---
+• 14th Place (2026) and 15th Place (2025) – São Paulo Programming Marathon
+• 42nd (2026), 107th (2025), and 135th (2024) Places in the Regional Phase – SBC Programming Marathon and ICPC
+• Honorable Mention (2024) – OBI (Brazilian Informatics Olympiad)
+• Silver Medal (2023) and Honorable Mention (2025) – CELLM (Logic Competition)
+• Bronze Medal (2021) – OPM (São Paulo Mathematics Olympiad)
+• Gold Medals (2019, 2022) – OBA (Brazilian Astronomy and Astronautics Olympiad)
+• Gold (2022 - 13th National Rank), Silver (2018, 2019), and Bronze (2017, 2021) Medals – OBMEP (Brazilian Public Schools Math Olympiad)
+
+--- CERTIFICATIONS ---
+• EFSET English Certificate (Intermediate) (https://efset.org/cert/9uJjv8)

@@ -1,0 +1,116 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\usepackage[sfdefault]{roboto}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{5pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\setlength{\tabcolsep}{0in}
+
+% Text justification settings
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+
+\titleformat{\section}{\Large\bfseries\scshape\raggedright}{}{0em}{}[\titlerule]
+
+\pdfgentounicode=1
+
+% ==============================================================================
+% 🛠️ HELPER MACROS & LAYOUT COMMANDS
+% ==============================================================================
+\newcommand{\resumeItem}[1]{\item\small{#1}}
+\newcommand{\resumeSubheading}[4]{
+\vspace{-1pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{#3} & \textit{#4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingList}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+% ==============================================================================
+% 👤 PERSONAL CONTACT INFORMATION (Edit here to update the entire document)
+% ==============================================================================
+\newcommand{\candidateName}{Gabriel Frigo}
+\newcommand{\candidateLocation}{Santo André, SP}
+\newcommand{\candidatePhone}{+55 11 95570-2000}
+\newcommand{\candidateEmail}{gabriel.frigo4@gmail.com}
+\newcommand{\candidateLinkedInUser}{gabriel-frigo}
+\newcommand{\candidateLinkedInURL}{https://linkedin.com/in/gabriel-frigo-b6727b275/}
+\newcommand{\candidateGitHubUser}{GabrielFrigo4}
+\newcommand{\candidateGitHubURL}{https://github.com/GabrielFrigo4}
+\newcommand{\candidateWebsite}{gabrielfrigo.dev.br}
+\newcommand{\candidateWebsiteURL}{https://gabrielfrigo.dev.br}
+
+% ==============================================================================
+% 🎯 TARGET POSITION & COMPANY (Customize for each application)
+% ==============================================================================
+\newcommand{\targetRole}{Development Intern}
+\newcommand{\targetCompany}{[Company Name]}
+
+\begin{document}
+
+% ==============================================================================
+% HEADER (Generated automatically from variables)
+% ==============================================================================
+\begin{center}
+  \textbf{\Huge \candidateName} \\ \vspace{4pt}
+  \small \candidatePhone\ $|$ \href{mailto:\candidateEmail}{\candidateEmail} $|$
+  \href{\candidateLinkedInURL}{linkedin.com/in/\candidateLinkedInUser} $|$
+  \href{\candidateGitHubURL}{github.com/\candidateGitHubUser} $|$
+  \href{\candidateWebsiteURL}{\candidateWebsite}
+\end{center}
+
+\vspace{6pt}
+
+\textbf{Subject: Application for \targetRole}
+
+Dear \targetCompany{} Recruiting Team,
+
+% CUSTOMIZE: Introductory paragraph with your goal and education
+I am writing to express my interest in the \textbf{\targetRole} position. I am a \textbf{Computer Science student at UFABC} whose profile bridges academic mathematical depth, pragmatic software engineering, low-level systems, and cloud infrastructure.
+
+% CUSTOMIZE: Highlight your technical mindset and fit
+My technical mindset navigates seamlessly between \textbf{academic theory and real-world production}: I find beauty in the rigor of \textbf{Pure Mathematics and Operations Research} (applying Graph Theory, Network Flows, and Combinatorics) just as much as in modern applied engineering (IaC with OpenTofu, Go microservices, Docker/Podman, and cloud architecture). Likewise, I embrace standard enterprise tools without losing appreciation for hands-on systems craftsmanship---from writing custom shell scripts and configuring native \textbf{FreeBSD with Jails (Bastille)} environments to writing high-performance code in \textbf{C/C++, Lua, Got, and POSIX standards}.
+
+% CUSTOMIZE: Concrete practical projects and accomplishments
+On the practical side, I developed \textbf{OptiLaser}---a logistics decision and operations research engine (VRPTW) solving complex combinatorial optimization in $<3$s built in \textbf{Go and CGo} with \textbf{Google OR-Tools}, cross-platform (\textbf{FreeBSD/Linux}), featuring an embedded \textbf{PocketBase} database and IaC provisioning via \textbf{OpenTofu} on \textbf{Magalu Cloud} running on \textbf{Podman with Rocky Linux}. I also built a \textbf{concurrent HTTP server in C} from scratch over POSIX/BSD Sockets, and I am proficient in systems languages such as \textbf{C, C++, Rust, and Assembly}, which I apply in leading projects at the \textbf{Green Team Hacker Club} and developing software for competitive robotics.
+
+% CUSTOMIZE: Academic honors, competitions, and working methodology
+My problem-solving skills have been forged through top-tier performance in competitions, such as the \textbf{Gold Medal (13th national rank) at OBMEP}, the \textbf{SBC Programming Marathon}, and the \textbf{ICPC}, alongside undergraduate research in \textbf{Network Flows (CNPq)} and \textbf{Ramsey Theory (PICME)}. Combining a strong \textbf{self-directed learning} drive with an \textbf{AI-First mindset}, I approach Artificial Intelligence not merely as a code generator, but as an intellectual partner for continuous learning via the \textbf{Socratic method}---questioning assumptions, rigorously analyzing architectural trade-offs, and accelerating my technical mastery.
+
+% CUSTOMIZE: Conclusion and call to action
+I believe this versatility---uniting mathematical modeling, low-level systems, scalable infrastructure, and rapid learning---qualifies me to make an immediate impact at \targetCompany. I am available for an interview at your convenience.
+
+Sincerely,
+
+\textbf{\candidateName}
+
+\end{document}

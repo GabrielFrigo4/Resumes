@@ -1,14 +1,22 @@
-# TODO / Melhorias Futuras
+# 📋 Roadmap & Backlog de Tarefas (TODO)
 
-### Evolução: Geração Automática dos Templates
+Este documento centraliza as tarefas planejadas, melhorias contínuas e ideias práticas para o repositório.
 
-**Objetivo:** Eliminar a necessidade de atualizar os arquivos `template-pt.tex` e `template-en.tex` manualmente. Quando o `resume-pt.tex` ou `resume-en.tex` mudarem estruturalmente, os templates devem ser re-gerados por um script que limpa as informações pessoais.
+---
 
-**Como implementar:**
+## 📌 Tarefas Concluídas
 
-1. Criar um script (ex: `scripts/generate_templates.py` ou `.sh`).
-2. O script deve ler `Resume/resume-pt.tex`.
-3. Utilizar Expressões Regulares (Regex) ou parser para buscar e substituir blocos como os detalhes de _Experiência Profissional_, _Projetos_, e _Formação_ por _placeholders_ como:
-   `% PERSONALIZAR: Adicione suas experiências aqui.`
-4. O script cospe o resultado formatado dentro da pasta `Template/`.
-5. (**Bônus**) Adicionar um comando no `Makefile` (ex: `make generate-templates`) para rodar esse script e até integrar isso no GitHub Actions!
+Lista de tarefas e melhorias técnicas implementadas e integradas com sucesso ao repositório:
+
+- [x] **Configuração de Git Hooks / Pré-Commit Local:**
+    - Hook de pre-commit nativo criado em `.githooks/pre-commit` e ativável via `make hooks`.
+    - Executa `make readme` automaticamente antes do commit para sincronizar a tabela de empresas no `README.md`.
+    - Executa verificação de formatação nos arquivos `.tex` em *staged*.
+
+- [x] **Validação de Links Externos no CI:**
+    - Script `scripts/check_links.py` criado e integrado ao `make check-links` e ao workflow do GitHub Actions.
+    - Valida o status HTTP de todos os links externos.
+
+- [x] **Exportação em Texto Puro para Plataformas de Vagas (ATS):**
+    - Script `scripts/export_text.py` com parser LaTeX integrado ao comando `make export`.
+    - Gera versões limpas em `resume/resume-pt.txt` e `resume/resume-en.txt`.
